@@ -1,0 +1,52 @@
+{
+  "name": "oc-ctrl-enter-force-import",
+  "version": "0.1.0",
+  "description": "OpenCode TUI plugin that interrupts the active run and submits the prompt with Ctrl+Enter.",
+  "keywords": [
+    "ctrl-enter",
+    "force-submit",
+    "opencode",
+    "opencode-plugin",
+    "tui"
+  ],
+  "homepage": "https://github.com/mynameistito/oc-ctrl-enter-force-import#readme",
+  "bugs": {
+    "url": "https://github.com/mynameistito/oc-ctrl-enter-force-import/issues"
+  },
+  "license": "MIT",
+  "author": "mynameistito",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mynameistito/oc-ctrl-enter-force-import.git"
+  },
+  "files": [
+    "index.ts",
+    "LICENSE",
+    "README.md"
+  ],
+  "type": "module",
+  "module": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "scripts": {
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "lefthook install"
+  },
+  "devDependencies": {
+    "@opencode-ai/plugin": "^1.17.13",
+    "@opentui/core": "^0.4.2",
+    "@opentui/keymap": "^0.4.2",
+    "@opentui/solid": "^0.4.2",
+    "@types/bun": "latest",
+    "lefthook": "^2.1.9",
+    "oxfmt": "^0.57.0",
+    "oxlint": "^1.72.0",
+    "typescript": "5.8.2",
+    "ultracite": "7.8.3"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  }
+}
