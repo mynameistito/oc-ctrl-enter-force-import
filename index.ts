@@ -1,5 +1,8 @@
 import type { TuiPlugin, TuiPluginModule } from "@opencode-ai/plugin/tui";
 
+/** Stable plugin ID required by OpenCode for file-based TUI plugins. */
+const PLUGIN_ID = "oc-ctrl-enter-force-import";
+
 /** OpenCode command registered by this plugin for Ctrl+Enter force-submit. */
 const FORCE_SUBMIT_COMMAND = "oc-ctrl-enter.force-submit";
 
@@ -40,4 +43,4 @@ export const tui = ((api) => {
 }) satisfies TuiPlugin;
 
 /** OpenCode plugin module entrypoint. */
-export default { tui } satisfies TuiPluginModule;
+export default { id: PLUGIN_ID, tui } satisfies TuiPluginModule;
