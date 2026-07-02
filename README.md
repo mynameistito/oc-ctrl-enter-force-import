@@ -6,18 +6,36 @@ It interrupts the active OpenCode run first, then submits the prompt so the mess
 
 ## Install
 
-Clone the plugin somewhere stable:
+Add the plugin package to `~/.config/opencode/tui.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "plugin": ["@mynameistito/oc-ctrl-enter-force-import"]
+}
+```
+
+OpenCode will install the package when the TUI starts. Restart OpenCode after changing plugin config.
+
+For local testing, clone the plugin somewhere stable:
 
 ```powershell
 git clone https://github.com/mynameistito/oc-ctrl-enter-force-import.git
 ```
 
-Add the plugin file path to your OpenCode config:
+Build it:
+
+```powershell
+bun install
+bun run build
+```
+
+Add the built TUI plugin file to `~/.config/opencode/tui.json`:
 
 ```json
 {
-  "$schema": "https://opencode.ai/config.json",
-  "plugin": ["/path/to/oc-ctrl-enter-force-import/index.ts"]
+  "$schema": "https://opencode.ai/tui.json",
+  "plugin": ["file:///C:/path/to/oc-ctrl-enter-force-import/dist/tui.mjs"]
 }
 ```
 
@@ -42,15 +60,6 @@ OpenCode's default `input_newline` binding includes `ctrl+return`, which can mak
   "keybinds": {
     "input_newline": "shift+return,alt+return,ctrl+j"
   }
-}
-```
-
-If this package is published to npm later, the config can use the package name directly:
-
-```json
-{
-  "$schema": "https://opencode.ai/config.json",
-  "plugin": ["oc-ctrl-enter-force-import"]
 }
 ```
 

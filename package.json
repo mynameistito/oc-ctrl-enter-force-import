@@ -1,5 +1,5 @@
 {
-  "name": "oc-ctrl-enter-force-import",
+  "name": "@mynameistito/oc-ctrl-enter-force-import",
   "version": "0.1.0",
   "description": "OpenCode TUI plugin that interrupts the active run and submits the prompt with Ctrl+Enter.",
   "keywords": [
@@ -20,19 +20,32 @@
     "url": "git+https://github.com/mynameistito/oc-ctrl-enter-force-import.git"
   },
   "files": [
-    "index.ts",
+    "dist",
     "LICENSE",
     "README.md"
   ],
   "type": "module",
-  "module": "./index.ts",
+  "main": "./dist/tui.mjs",
+  "module": "./dist/tui.mjs",
+  "types": "./dist/tui.d.mts",
   "exports": {
-    ".": "./index.ts"
+    ".": {
+      "types": "./dist/tui.d.mts",
+      "import": "./dist/tui.mjs"
+    },
+    "./tui": {
+      "types": "./dist/tui.d.mts",
+      "import": "./dist/tui.mjs"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
+    "build": "tsdown",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "lefthook install"
+    "prepack": "bun run build"
   },
   "devDependencies": {
     "@opencode-ai/plugin": "^1.17.13",
@@ -43,6 +56,7 @@
     "lefthook": "^2.1.9",
     "oxfmt": "^0.57.0",
     "oxlint": "^1.72.0",
+    "tsdown": "^0.22.3",
     "typescript": "5.8.2",
     "ultracite": "7.8.3"
   },
