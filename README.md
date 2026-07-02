@@ -23,6 +23,17 @@ Add the plugin file path to your OpenCode config:
 
 Restart OpenCode after changing plugin config.
 
+OpenCode's default `input_newline` binding includes `ctrl+return`, which can make Ctrl+Enter insert a newline before this plugin sees it. Remove `ctrl+return` from `input_newline` in your `tui.json`:
+
+```json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "keybinds": {
+    "input_newline": "shift+return,alt+return,ctrl+j"
+  }
+}
+```
+
 If this package is published to npm later, the config can use the package name directly:
 
 ```json
@@ -40,6 +51,8 @@ The plugin registers high-priority TUI keybindings for `ctrl+return` and `ctrl+e
 2. Dispatches OpenCode's built-in `prompt.submit` command.
 
 It does not change your `tui.json`, so any existing `input_submit` or `input_newline` preferences stay intact.
+
+Because OpenCode's managed textarea keybinds run on the focused prompt, `ctrl+return` must not also be bound to `input_newline`.
 
 ## Windows Terminal
 
