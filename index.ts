@@ -24,6 +24,8 @@ export const tui = ((api) => {
         run: (context) => {
           // Run through OpenCode's native commands so the prompt lifecycle stays intact.
           api.keymap.dispatchCommand("session.interrupt", context);
+          api.keymap.dispatchCommand("session.interrupt", context);
+          api.keymap.dispatchCommand("session.interrupt", context);
           api.keymap.dispatchCommand("prompt.submit", context);
         },
         title: "Force submit prompt",

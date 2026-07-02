@@ -23,6 +23,17 @@ Add the plugin file path to your OpenCode config:
 
 Restart OpenCode after changing plugin config.
 
+For standalone testing from `~/.config/opencode/plugins`, add the file to `~/.config/opencode/tui.json` as a TUI plugin:
+
+```json
+{
+  "$schema": "https://opencode.ai/tui.json",
+  "plugin": [
+    "file:///C:/Users/you/.config/opencode/plugins/oc-ctrl-enter-force-import.ts"
+  ]
+}
+```
+
 OpenCode's default `input_newline` binding includes `ctrl+return`, which can make Ctrl+Enter insert a newline before this plugin sees it. Remove `ctrl+return` from `input_newline` in your `tui.json`:
 
 ```json
@@ -48,7 +59,8 @@ If this package is published to npm later, the config can use the package name d
 The plugin registers high-priority TUI keybindings for `ctrl+return` and `ctrl+enter`, both mapped to a custom command that:
 
 1. Dispatches OpenCode's built-in `session.interrupt` command.
-2. Dispatches OpenCode's built-in `prompt.submit` command.
+2. Repeats `session.interrupt` to pass OpenCode's guarded abort flow when a generation is active.
+3. Dispatches OpenCode's built-in `prompt.submit` command.
 
 It does not change your `tui.json`, so any existing `input_submit` or `input_newline` preferences stay intact.
 
