@@ -6,8 +6,8 @@ export default defineConfig({
     neverBundle: ["@opencode-ai/plugin/tui"],
   },
   dts: {
+    sourcemap: true,
     tsgo: true,
-    sourcemap: true
   },
   entry: {
     tui: "./index.ts",
