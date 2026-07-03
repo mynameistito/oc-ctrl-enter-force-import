@@ -44,6 +44,9 @@
   "scripts": {
     "build": "tsdown",
     "check": "ultracite check",
+    "changeset": "changeset",
+    "changeset-add": "bun ./scripts/changeset-add.ts",
+    "knip": "bunx knip@latest",
     "fix": "ultracite fix",
     "prepack": "bun run build"
   },
@@ -62,5 +65,8 @@
   },
   "peerDependencies": {
     "typescript": "^5"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.31.0"
   }
 }
