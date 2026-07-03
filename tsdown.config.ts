@@ -5,7 +5,10 @@ export default defineConfig({
   deps: {
     neverBundle: ["@opencode-ai/plugin/tui"],
   },
-  dts: true,
+  dts: {
+    tsgo: true,
+    sourcemap: true
+  },
   entry: {
     tui: "./index.ts",
   },
