@@ -7,8 +7,7 @@ export default defineConfig({
   },
   dts: {
     sourcemap: true,
-    tsgo: true,
-  },
+    },
   entry: {
     tui: "./index.ts",
   },
